@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:dweya_app/model/user.dart';
 import 'package:dweya_app/utils/luckyplace_colors.dart';
-import 'package:dweya_app/utils/luckyplace_consts.dart';
+import 'package:dweya_app/utils/koko_consts.dart';
 import 'package:dweya_app/utils/luckyplace_fonts.dart';
 import 'package:dweya_app/view/home_screen/home_screen.dart';
 import 'package:dweya_app/view/onboarding_screen/components/back_bottom_button.dart';
@@ -19,6 +20,8 @@ class OnboardingItem {
 }
 
 class OnBoardingScreen extends StatefulWidget {
+  User? user;
+  OnBoardingScreen({this.user});
   @override
   State<OnBoardingScreen> createState() => _OnBoardingScreenState();
 }
@@ -33,16 +36,16 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     OnboardingItem(
         title: "Chercher",
         subTitle:
-            "Chercher ou filtrer les médicaments par leurs noms ou catégories",
+            "Rechercher et filtrer des médicaments par leurs noms ou par leurs catégories",
         lottieName: "onboarding_1.json"),
     OnboardingItem(
         title: "Vérifier",
-        subTitle:
-            "Vérifier la disponibilité des médicaments et le nombre du stock restant",
+        subTitle: "Vérifier la disponibilité des médicaments",
         lottieName: "onboarding_2.json"),
     OnboardingItem(
         title: "Terminer",
-        subTitle: "Sed ut perspiciatis unde omnis iste natus error sit.",
+        subTitle:
+            "Vends vos médicaments et partage l'application avec vos amis.",
         lottieName: "onboarding_3.json")
   ];
 
@@ -76,7 +79,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         for (var page in onBoardingList) ...{
                           Container(
                               child: Lottie.asset(
-                            LPConst.lottieFolder + page.lottieName,
+                            KOKOConst.lottieFolder + page.lottieName,
                           ))
                         },
                       ],
@@ -110,7 +113,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => HomeScreen()));
+                                    builder: (context) => HomeScreen(
+                                          user: widget.user,
+                                        )));
                           } else {
                             pageController.nextPage(
                                 duration: Duration(milliseconds: 700),

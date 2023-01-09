@@ -1,6 +1,6 @@
 import 'package:dweya_app/view/medicine_detail_screen/components/body_medicine_info_item.dart';
 import 'package:flutter/material.dart';
-import 'package:dweya_app/model/Medicine.dart';
+import 'package:dweya_app/model/medicine.dart';
 import 'package:dweya_app/utils/luckyplace_colors.dart';
 import 'package:dweya_app/utils/luckyplace_fonts.dart';
 
@@ -19,9 +19,12 @@ class BodyMedicineDetailSection extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(
+                height: 12,
+              ),
               Container(
                 child: Text(
-                  "DOLIPRANE VIT.C 500mg/150mg Comp eff. Bt 16",
+                  medicine?.name ?? "",
                   textAlign: TextAlign.start,
                   style: TextStyle(
                       color: LPColors.white,
@@ -35,7 +38,36 @@ class BodyMedicineDetailSection extends StatelessWidget {
                 height: 12,
               ),
               Text(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+                medicine?.fullName ?? "",
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                    fontFamily: LPFonts.sfProRegular,
+                    height: 1.3,
+                    color: LPColors.grey1,
+                    fontSize: 14,
+                    letterSpacing: 0.17,
+                    fontWeight: FontWeight.w400),
+              ),
+              SizedBox(
+                height: 24,
+              ),
+              Container(
+                child: Text(
+                  "Avis & commentaire:",
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                      color: LPColors.white,
+                      fontFamily: LPFonts.sfProRegular,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 16,
+                      letterSpacing: 0.4),
+                ),
+              ),
+              SizedBox(
+                height: 12,
+              ),
+              Text(
+                "La plupart des médicaments existent en comprimé. Certains, trop irritants, sont recouverts d'une pellicule gastrorésistante. Actif: de 1h30 à 2 heures après la prise",
                 textAlign: TextAlign.start,
                 style: TextStyle(
                     fontFamily: LPFonts.sfProRegular,
@@ -49,22 +81,22 @@ class BodyMedicineDetailSection extends StatelessWidget {
                 height: 40,
               ),
               BodyMedicineInfoItem(
-                title: "QTE RESTANTE",
-                info: "3",
+                id: medicine?.id ?? 0,
+                title: "Etat",
+                info: (medicine?.status ?? "0") == "0"
+                    ? "Disponible"
+                    : (medicine?.status ?? "0") == "1"
+                        ? "Limité"
+                        : (medicine?.status ?? "0") == "2"
+                            ? "Epuisé"
+                            : "",
                 isQuantityInfo: true,
               ),
               BodyMedicineInfoItem(
-                title: "LABORATOIRE",
-                info: "Sanofi",
+                id: 0,
+                title: "Catégorie",
+                info: medicine?.category ?? "",
               ),
-              BodyMedicineInfoItem(
-                title: "CLASSE",
-                info: "Dermatologie",
-              ),
-              BodyMedicineInfoItem(
-                title: "SOUS-CLASSE",
-                info: "Dermatologie",
-              )
             ],
           ),
         ));

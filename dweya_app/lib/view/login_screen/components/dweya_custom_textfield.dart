@@ -8,12 +8,14 @@ class DWTextField extends StatelessWidget {
   String? placeholder;
   bool isPassword;
   TextInputType keyboardType;
+  TextEditingController? textController;
 
   DWTextField(
       {required this.itemHeight,
       this.itemWidth,
       this.placeholder,
       this.isPassword = false,
+      this.textController,
       this.keyboardType = TextInputType.text});
 
   @override
@@ -31,6 +33,7 @@ class DWTextField extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: TextField(
+          controller: textController,
           keyboardType: keyboardType,
           obscureText: isPassword,
           style: TextStyle(

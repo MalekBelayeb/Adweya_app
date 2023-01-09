@@ -1,5 +1,5 @@
 import 'package:dweya_app/utils/luckyplace_colors.dart';
-import 'package:dweya_app/utils/luckyplace_consts.dart';
+import 'package:dweya_app/utils/koko_consts.dart';
 import 'package:flutter/material.dart';
 
 class BackBottomButton extends StatelessWidget {
@@ -28,7 +28,7 @@ class BackBottomButton extends StatelessWidget {
               width: 25,
               height: 25,
               child: Image.asset(
-                LPConst.imageFolder + "arrow-right.png",
+                KOKOConst.imageFolder + "arrow-right.png",
                 fit: BoxFit.fitWidth,
               ),
             ),

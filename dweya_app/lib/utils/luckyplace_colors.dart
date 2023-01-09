@@ -15,6 +15,10 @@ class LPColors {
 
   static var green1 = "#18E68E".getColor;
 
+  static var yellow = "#FFB545".getColor;
+  static var red = "#FA2256".getColor;
+  static var green = "#30E0A1".getColor;
+
   static var gradientImageColor1 = "#32364300".getColor;
   static var gradientImageColor2 = "#32364380".getColor;
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dweya_app/utils/luckyplace_consts.dart';
+import 'package:dweya_app/utils/koko_consts.dart';
 
 class PhotoItem extends StatelessWidget {
   var photo = "";
@@ -17,7 +17,7 @@ class PhotoItem extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: Image.asset(
-            LPConst.imageFolder + photo,
+            "${KOKOConst.imageFolder}${photo}",
             fit: BoxFit.cover,
           ),
         ),

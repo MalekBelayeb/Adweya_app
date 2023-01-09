@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:dweya_app/utils/luckyplace_consts.dart';
+import 'package:dweya_app/utils/koko_consts.dart';
 import 'package:dweya_app/utils/luckyplace_fonts.dart';
 
 class TopHeaderView extends StatelessWidget {
@@ -18,7 +18,7 @@ class TopHeaderView extends StatelessWidget {
       children: [
         if (!hideBackButton) ...{
           Image.asset(
-            LPConst.imageFolder + "left_arrow_icon.png",
+            KOKOConst.imageFolder + "left_arrow_icon.png",
             height: 18,
             width: 18,
           )
@@ -36,7 +36,7 @@ class TopHeaderView extends StatelessWidget {
         ),
         if (!hideHamburgerMenu) ...{
           Image.asset(
-            LPConst.imageFolder + "hamburger_menu_icon.png",
+            KOKOConst.imageFolder + "hamburger_menu_icon.png",
             height: 24,
             width: 24,
           )

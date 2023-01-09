@@ -1,16 +1,20 @@
 class Medicine {
+  int? id;
   String? name;
+  String? fullName;
   String? cover;
   String? category;
   String? location;
-  int? rate;
+  String? status;
   List<String>? gallery;
 
   Medicine(
-      {this.name,
+      {this.id,
+      this.name,
+      this.fullName,
       this.cover,
       this.category,
       this.location,
-      this.rate,
+      this.status,
       this.gallery});
 }

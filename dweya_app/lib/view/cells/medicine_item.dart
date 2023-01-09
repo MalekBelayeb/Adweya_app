@@ -2,9 +2,9 @@
 
 import 'package:dweya_app/view/medicine_detail_screen/medicine_detail_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:dweya_app/model/Medicine.dart';
+import 'package:dweya_app/model/medicine.dart';
 import 'package:dweya_app/utils/luckyplace_colors.dart';
-import 'package:dweya_app/utils/luckyplace_consts.dart';
+import 'package:dweya_app/utils/koko_consts.dart';
 import 'package:dweya_app/utils/luckyplace_fonts.dart';
 
 class MedicineItem extends StatefulWidget {
@@ -50,8 +50,8 @@ class _MedicineItemState extends State<MedicineItem> {
               decoration: BoxDecoration(
                   image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage(LPConst.imageFolder +
-                          (widget.medicine?.cover ?? ""))),
+                      image: AssetImage(
+                          "${KOKOConst.imageFolder}${widget.medicine?.cover}")),
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(20),
                       bottomLeft: Radius.circular(20))),
@@ -95,7 +95,7 @@ class _MedicineItemState extends State<MedicineItem> {
                                       ),
                                     ),
                                     SizedBox(
-                                      height: 10,
+                                      height: 5,
                                     ),
                                     Text(
                                       widget.medicine?.category ?? "",
@@ -130,36 +130,43 @@ class _MedicineItemState extends State<MedicineItem> {
                                   children: [
                                     Row(
                                       crossAxisAlignment:
-                                          CrossAxisAlignment.end,
+                                          CrossAxisAlignment.center,
                                       mainAxisAlignment: MainAxisAlignment.end,
                                       children: [
                                         Text(
-                                          widget.medicine?.rate?.toString() ??
-                                              "0",
+                                          (widget.medicine?.status ?? "0") ==
+                                                  "0"
+                                              ? "Disponible"
+                                              : (widget.medicine?.status ??
+                                                          "0") ==
+                                                      "1"
+                                                  ? "Limité"
+                                                  : (widget.medicine?.status ??
+                                                              "0") ==
+                                                          "2"
+                                                      ? "Epuisé"
+                                                      : "",
                                           textAlign: TextAlign.justify,
                                           style: TextStyle(
-                                              color: LPColors.green1,
+                                              color: ((widget.medicine
+                                                              ?.status ??
+                                                          "0") ==
+                                                      "0")
+                                                  ? LPColors.green1
+                                                  : ((widget.medicine?.status ??
+                                                              "0") ==
+                                                          "1")
+                                                      ? LPColors.yellow
+                                                      : ((widget.medicine
+                                                                      ?.status ??
+                                                                  "0") ==
+                                                              "2")
+                                                          ? LPColors.red
+                                                          : LPColors.green,
                                               fontFamily: LPFonts.sfProRegular,
                                               fontWeight: FontWeight.w400,
-                                              fontSize: 20,
+                                              fontSize: 12,
                                               letterSpacing: 0.225),
-                                        ),
-                                        SizedBox(
-                                          width: 4,
-                                        ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(bottom: 2),
-                                          child: Text(
-                                            "Restants",
-                                            style: TextStyle(
-                                                color: LPColors.grey3,
-                                                fontFamily:
-                                                    LPFonts.sfProRegular,
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: 12,
-                                                letterSpacing: 0.18),
-                                          ),
                                         )
                                       ],
                                     ),

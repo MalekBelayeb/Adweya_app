@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:dweya_app/model/Medicine.dart';
-import 'package:dweya_app/utils/luckyplace_consts.dart';
+import 'package:dweya_app/model/medicine.dart';
+import 'package:dweya_app/utils/koko_consts.dart';
 import 'package:dweya_app/utils/luckyplace_fonts.dart';
 
 class TopImageMedicineSection extends StatefulWidget {
@@ -30,7 +30,7 @@ class _TopImageMedicineSectionState extends State<TopImageMedicineSection> {
                 height: imageConstraints.maxHeight,
                 width: imageConstraints.maxWidth,
                 child: Image.asset(
-                  LPConst.imageFolder + (widget.medicine?.cover ?? ""),
+                  KOKOConst.imageFolder + (widget.medicine?.cover ?? ""),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -57,7 +57,7 @@ class _TopImageMedicineSectionState extends State<TopImageMedicineSection> {
                         GestureDetector(
                           onTap: () => Navigator.pop(context),
                           child: Image.asset(
-                            LPConst.imageFolder + "left_arrow_icon.png",
+                            KOKOConst.imageFolder + "left_arrow_icon.png",
                             height: 18,
                             width: 18,
                           ),
@@ -73,7 +73,7 @@ class _TopImageMedicineSectionState extends State<TopImageMedicineSection> {
                         ),
                         GestureDetector(
                           child: Image.asset(
-                            LPConst.imageFolder +
+                            KOKOConst.imageFolder +
                                 (notificationTapped
                                     ? "notification_fill.png"
                                     : "notification.png"),

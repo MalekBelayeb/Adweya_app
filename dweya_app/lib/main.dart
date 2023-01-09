@@ -1,7 +1,6 @@
-import 'package:dweya_app/view/category_detail_screen/category_detail_screen.dart';
+import 'package:dweya_app/utils/navigator_service.dart';
 import 'package:dweya_app/view/login_screen/login_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:dweya_app/view/home_screen/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,6 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
+      navigatorKey: NavigatorService.instance.globalKey,
       theme: ThemeData(
         // This is the theme of your application.
         //

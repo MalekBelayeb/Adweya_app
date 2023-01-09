@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:dweya_app/model/Medicine.dart';
+import 'package:dweya_app/model/medicine.dart';
 import 'package:dweya_app/utils/luckyplace_colors.dart';
 import 'package:dweya_app/view/medicine_detail_screen/components/body_medicine_detail_component.dart';
 import 'package:dweya_app/view/medicine_detail_screen/components/top_image_component.dart';
 
 class MedicineDetailScreen extends StatelessWidget {
   Medicine medicine;
+
   MedicineDetailScreen({required this.medicine});
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class MedicineDetailScreen extends StatelessWidget {
           ),
           BodyMedicineDetailSection(
             medicine: this.medicine,
-          )
+          ),
         ]),
       ),
     );

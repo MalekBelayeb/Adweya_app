@@ -1,8 +1,8 @@
 import 'package:dweya_app/view/category_detail_screen/category_detail_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:dweya_app/model/Category.dart';
+import 'package:dweya_app/model/category.dart';
 import 'package:dweya_app/utils/luckyplace_colors.dart';
-import 'package:dweya_app/utils/luckyplace_consts.dart';
+import 'package:dweya_app/utils/koko_consts.dart';
 import 'package:dweya_app/utils/luckyplace_fonts.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -25,7 +25,7 @@ class CategoryItem extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => CategoryDetailScreen(
-                      title: this.category?.name,
+                      category: this.category,
                     )));
       }),
       child: Padding(
@@ -44,7 +44,7 @@ class CategoryItem extends StatelessWidget {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: Image.asset(
-                        LPConst.imageFolder + (category?.image ?? ""),
+                        KOKOConst.imageFolder + (category?.image ?? ""),
                         fit: BoxFit.cover,
                       ),
                     ),
